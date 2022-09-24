@@ -7,6 +7,7 @@ use std::{error::Error, io::Read};
 
 pub mod anih;
 pub mod header;
+pub mod nlist;
 
 /**
  * Trait implemented by all structs that are parsed from a Riff file.
