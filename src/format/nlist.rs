@@ -31,6 +31,16 @@ pub struct NListChunk {
     size: u32
 }
 
+impl NListChunk {
+    pub fn get_vec_ref(&self) -> &Vec<u32> {
+        self.list.as_ref()
+    }
+
+    pub fn get_vec_owned(self) -> Vec<u32> {
+        self.list
+    }
+}
+
 impl RiffParsable for NListChunk {
     fn parse(input: &mut dyn std::io::Read, size: u32, offset: u64, parent: &str) -> Result<Self, Box<dyn std::error::Error>> {
         if size % 4 != 0 {

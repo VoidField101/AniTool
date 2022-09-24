@@ -42,6 +42,42 @@ pub struct AnihChunk{
     sequenced: bool
 }
 
+impl AnihChunk {
+
+    pub fn total_frames(&self) -> u32 {
+        self.frames
+    }
+
+    pub fn animation_steps(&self) -> u32 {
+        self.steps
+    }
+
+    pub fn bmp_size(&self) -> (u32, u32) {
+        (self.width, self.height)
+    }
+    
+    pub fn color_bits(&self) -> u32 {
+        self.bits
+    }
+
+    pub fn image_planes(&self) -> u32 {
+        self.planes
+    }
+
+    pub fn animation_rate(&self) -> u32 {
+        self.rate
+    }
+
+    pub fn is_ico(&self) -> bool {
+        self.ico
+    }
+
+    pub fn is_sequenced(&self) -> bool {
+        self.sequenced
+    }
+
+}
+
 impl RiffParsable for AnihChunk {
 
     fn parse(input: &mut dyn Read, size: u32, offset: u64, parent: &str) -> Result<Self, Box<dyn Error>> {
