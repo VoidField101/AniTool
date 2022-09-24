@@ -31,11 +31,5 @@ pub enum ParsingError {
         chunk: String,
         offset: u64,
         context: String
-    },
-
-    #[error("Parsing error at offset {offset:?}. {context:?}")]
-    GenericParsingError {
-        offset: u64,
-        context: String
     }
 }

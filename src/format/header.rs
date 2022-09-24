@@ -19,8 +19,6 @@ use std::fmt;
 
 use byteorder::{ReadBytesExt, LittleEndian};
 
-use crate::error::ParsingError::GenericParsingError;
-
 use super::RiffParsable;
 
 /**
@@ -38,7 +36,7 @@ impl fmt::Debug for RiffHeader {
 }
 
 impl RiffParsable for RiffHeader{
-    fn parse(input: &mut dyn std::io::Read, size: u32, offset: u64, parent: &str) -> Result<Self, Box<dyn std::error::Error>> 
+    fn parse(input: &mut dyn std::io::Read, _size: u32, _offset: u64, _parent: &str) -> Result<Self, Box<dyn std::error::Error>> 
     {
         let mut name: [u8;4] = [0;4];
         input.read_exact(&mut name)?;

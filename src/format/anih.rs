@@ -80,7 +80,7 @@ impl AnihChunk {
 
 impl RiffParsable for AnihChunk {
 
-    fn parse(input: &mut dyn Read, size: u32, offset: u64, parent: &str) -> Result<Self, Box<dyn Error>> {
+    fn parse(input: &mut dyn Read, size: u32, offset: u64, _parent: &str) -> Result<Self, Box<dyn Error>> {
         if size != 36 {
             return Err(Box::new(ParsingError::InvalidDataError { chunk: "anih".to_string(), offset: offset-4, context: "Header size in anih has to equal 36.".to_string() }));
         }
