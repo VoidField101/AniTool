@@ -5,6 +5,7 @@
 
 use std::{error::Error, io::Read};
 
+pub mod anih;
 pub mod header;
 
 /**
